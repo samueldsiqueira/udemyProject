@@ -23,10 +23,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // rotas
+// Pergunta.findAll(); = SELECT * ALL FROM pergunt. raw siginifica true
 app.get("/", (req, res) => {
-  res.render("index");
+  Pergunta.findAll({ raw: true }).then((perguntas) => {
+    res.render("index", {
+      perguntas: perguntas,
+    });
+  });
 });
-
 app.get("/perguntar", (req, res) => {
   res.render("perguntar");
 });
