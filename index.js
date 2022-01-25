@@ -25,7 +25,12 @@ app.use(bodyParser.json());
 // rotas
 // Pergunta.findAll(); = SELECT * ALL FROM pergunt. raw siginifica true
 app.get("/", (req, res) => {
-  Pergunta.findAll({ raw: true }).then((perguntas) => {
+  Pergunta.findAll({
+    raw: true,
+    order: [
+      ["id", "DESC"], //ASC = crescente || DESC = decrescente
+    ],
+  }).then((perguntas) => {
     res.render("index", {
       perguntas: perguntas,
     });
