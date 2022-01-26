@@ -7,6 +7,20 @@
     <br />
     <p><%= pergunta.descricao %></p>
     <hr />
+    <form action="" method="get">
+      <h3>Responda</h3>
+      <label for="">Resposta:</label>
+      <textarea
+        name="corpo"
+        id=""
+        cols="30"
+        rows="10"
+        placeholder="Digite sua resposta"
+        class="form-control"
+      ></textarea>
+      <br />
+      <button type="submit" class="btn btn-dark">Responder</button>
+    </form>
   </div>
 </body>
 <%-include('./partials/footer.ejs') %>
